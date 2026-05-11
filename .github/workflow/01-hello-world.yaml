@@ -1,0 +1,13 @@
+# Workflow = Pipeline
+name: Hello World Workflow
+#What makes this pipeline trigger
+on: [push] # Triggers the workflow on every push to the repository
+
+# stages
+jobs:
+  # stage
+  say-hello:
+    runs-on: ubuntu-latest # The virtual machine environment
+    steps:
+      - name: Greet the world
+        run: echo "Hello, World!"
