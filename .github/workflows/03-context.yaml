@@ -17,3 +17,10 @@ jobs:
           echo "DB User is: ${{ secrets.DB_USER }}"
           echo "DB Password is: ${{ secrets.DB_PASSWORD }}"
           echo "DB URL is: ${{ vars.DB_URL }}"
+
+      - name: Compute tag
+        id: tag                                    # step MUST have an id
+        run: echo "value=myapp:abc123" >> $GITHUB_OUTPUT
+
+      - name: Use that output
+        run: echo "Image is ${{ steps.tag.outputs.value }}"
