@@ -11,3 +11,9 @@ jobs:
     steps:
       - name: print github context
         run: echo '${{ toJSON(github) }}'
+
+      - name: access secrets and variables
+        run: |
+          echo "DB User is: ${{ secrets.DB_USER }}"
+          echo "DB Password is: ${{ secrets.DB_PASSWORD }}"
+          echo "DB URL is: ${{ vars.DB_URL }}"
