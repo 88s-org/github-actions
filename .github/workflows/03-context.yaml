@@ -1,0 +1,13 @@
+# Workflow = Pipeline
+name: context
+#What makes this pipeline trigger
+on: [push] # Triggers the workflow on every push to the repository
+
+# stages
+jobs:
+  # stage
+  say-hello:
+    runs-on: ubuntu-latest # The virtual machine environment
+    steps:
+      - name: print github context
+        run: echo "Github context: ${{ toJson(github) }}"
