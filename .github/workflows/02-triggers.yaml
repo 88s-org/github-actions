@@ -1,10 +1,15 @@
 # Workflow = Pipeline
 name: Demo on triggers
 #What makes this pipeline trigger
-on:
-  push:
-    branches:
-      - 'main'
+on: workflow_dispatch
+  # pull_request:
+  #   branches:
+  #     - main
+  #   types:                    # default types: opened, synchronize, reopened
+  #     - opened
+  # push:
+  #   branches:
+  #     - 'main'
 
 # stages
 jobs:
@@ -12,5 +17,7 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest # The virtual machine environment
     steps:
+      # - name: Greet the world
+      #   run: echo "Hello from main branch!"
       - name: Greet the world
-        run: echo "Hello from main branch!"
+        run: echo "Hello from main branch pull request!"
