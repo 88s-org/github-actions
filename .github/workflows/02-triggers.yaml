@@ -22,6 +22,11 @@ on:
   # push:
   #   branches:
   #     - 'main'
+env:
+  APP_NAME: "devsecops-app"
+  APP_VERSION: "1.0.0"
+  DOCKER_REGISTRY: "ghcr.io"
+  NODE_VERSION: "20"
 
 # stages
 jobs:
@@ -40,4 +45,12 @@ jobs:
       - run: |
           echo "Build ID: ${{ inputs.build_id }}"
           echo "to target:${{ inputs.deploy_target }}"
+
+  access-env:
+    steps:
+      - run: |
+          echo "App Name: $APP_NAME"
+          echo "App Version: $APP_VERSION"
+          echo "Docker Registry: $DOCKER_REGISTRY"
+          echo "Node Version: $NODE_VERSION"
       
