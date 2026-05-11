@@ -1,7 +1,19 @@
 # Workflow = Pipeline
 name: Demo on triggers
 #What makes this pipeline trigger
-on: workflow_dispatch
+on: 
+    workflow_dispatch:
+  # 1. Manual trigger with inputs
+      inputs:
+        build_id:
+          required: true
+          type: number
+        deploy_target:
+          required: true
+          type: string
+        perform_deploy:
+          required: true
+          type: boolean
   # pull_request:
   #   branches:
   #     - main
