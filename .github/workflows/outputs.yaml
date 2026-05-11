@@ -1,0 +1,18 @@
+jobs:
+  build:
+    outputs:
+      image-tag: ${{ steps.tag.outputs.value }}   # expose for other jobs
+
+    steps:
+      - name: Set env var for later steps
+        run: echo "BUILD_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV   # $GITHUB_ENV
+
+      - name: Use that env var
+        run: echo "Build date: $BUILD_DATE"        # available as shell var
+
+      - name: Compute image tag
+        id: tag                                    # id required for $GITHUB_OUTPUT
+        run: echo "value=myapp:abc123" >> $GITHUB_OUTPUT
+
+      - name: Use step output in same job
+        run: echo "Tag: ${{ steps.tag.outputs.value }}"  # $GITHUB_OUTPUT
