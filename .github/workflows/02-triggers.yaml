@@ -47,6 +47,7 @@ jobs:
           echo "to target:${{ inputs.deploy_target }}"
 
   access-env:
+    runs-on: ubuntu-latest
     steps:
       - run: |
           echo "App Name: $APP_NAME"
