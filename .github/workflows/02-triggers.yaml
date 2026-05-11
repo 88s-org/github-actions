@@ -4,7 +4,7 @@ name: Demo on triggers
 on:
   push:
     branches:
-      - 'feature-*'
+      - 'main'
 
 # stages
 jobs:
@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest # The virtual machine environment
     steps:
       - name: Greet the world
-        run: echo "Hello from feature branch!"
+        run: echo "Hello from main branch!"
