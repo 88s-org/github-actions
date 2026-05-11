@@ -1,0 +1,16 @@
+# Workflow = Pipeline
+name: Demo on triggers
+#What makes this pipeline trigger
+on:
+  push:
+    branches:
+      - 'feature-*'
+
+# stages
+jobs:
+  # stage
+  say-hello:
+    runs-on: ubuntu-latest # The virtual machine environment
+    steps:
+      - name: Greet the world
+        run: echo "Hello from feature branch!"
