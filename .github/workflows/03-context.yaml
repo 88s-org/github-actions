@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest # The virtual machine environment
     steps:
       - name: print github context
-        run: echo "Github context: ${{ toJson(github) }}"
+        run: echo '${{ toJSON(github) }}'
