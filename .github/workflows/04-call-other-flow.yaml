@@ -1,0 +1,15 @@
+name: feature-pipeline
+on: [push]
+permissions:
+  contents: read
+  statuses: write
+  security-events: read
+jobs: 
+  feature-pipeline:
+    if: github.ref == 'refs/heads/main'
+    uses: 88s-org/workflows/.github/workflows/nodeJSFeaturePipeline.yaml@main
+    with:
+      project: roboshop
+      component: catalogue
+      environment: dev
+    secrets: inherit
