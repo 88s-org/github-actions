@@ -16,3 +16,9 @@ jobs:
 
       - name: Use step output in same job
         run: echo "Tag: ${{ steps.tag.outputs.value }}"  # $GITHUB_OUTPUT
+
+  deploy:
+    needs: build
+    steps:
+      - name: Use output from build job
+        run: echo "Deploying ${{ needs.build.outputs.image-tag }}"  # needs
