@@ -33,3 +33,11 @@ jobs:
       #   run: echo "Hello from main branch!"
       - name: Greet the world
         run: echo "Hello from main branch pull request!"
+
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Build ID: ${{ inputs.build_id }}"
+          echo "to target:${{ inputs.deploy_target }}"
+      
